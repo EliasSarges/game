@@ -1,4 +1,5 @@
 import pygame
+
 import sys
 from scripts.Player import Player
 
@@ -10,15 +11,13 @@ WINDOW_SIZE = (640, 480)
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Jogo01")  # Mudando nome e icone da janela do jogo
 
-player = Player(screen, "assets/sprites/player.png", 3)
+player = Player(screen, "assets/sprites/player.png",
+                "assets/sprites/sword.png", 3)
 
 # loop principal do jogo
 while True:
     screen.fill('#333333')  # preenchendo a tela do jogo com a cor #333333
-
     player.draw()
-    player.move()
-
     # evento de saida do jogo
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
