@@ -5,12 +5,13 @@ from scripts.Weapon import Weapon
 
 
 class Player:
-
+    # construtod do player ------------------------------------------------------|
     def __init__(self, surface, path_img, path_img_weapon, speed, up=False, down=False, left=False, right=False):
+        self.surface = surface
         self.sprite_img = pygame.image.load(path_img)
         self.rect_player = self.sprite_img.get_rect()
-        self.surface = surface
 
+        # variaveis de controle de movimento ------------------------------------|
         self.up = up
         self.down = down
         self.left = left
@@ -30,6 +31,7 @@ class Player:
 
     def draw(self):
 
+        # muda a direcao do player de acordo com a variavel direction -------------|
         if self.direction == 0:
             self.surface.blit(pygame.transform.flip(
                 self.sprite_img, True, False), self.rect_player)
@@ -39,6 +41,7 @@ class Player:
         self.rotate_weapon()
         self.move()
 
+    # controle de movimento do jogador
     def move(self):
         if self.up:
             self.rect_player.y -= self.speed
