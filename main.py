@@ -10,7 +10,7 @@ WINDOW_SIZE = (640, 480)
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Jogo01")  # Mudando nome e icone da janela do jogo
 
-player = Player(screen, "assets/sprites/player.png")
+player = Player(screen, "assets/sprites/player.png", 3)
 
 # loop principal do jogo
 while True:
