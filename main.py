@@ -33,9 +33,11 @@ while True:
 
             if(event.key == 97):
                 player.left = True
+                player.direction = 0
 
             if(event.key == 100):
                 player.right = True
+                player.direction = 1
 
         # ao soltar uma tecla
         if event.type == pygame.KEYUP:
