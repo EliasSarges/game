@@ -1,8 +1,6 @@
 import pygame
 import math
 
-# from scripts.Weapon import Weapon
-
 
 class Player:
     # construtod do player ------------------------------------------------------|
@@ -81,7 +79,6 @@ class Player:
         self.surface.blit(
             self.rot_image, self.rot_image_rect)
 
-    # def behavior(self):
-    # def melee_circle_attack(self, rect_player):
-        # pygame.draw.circle(self.surface, 'red',
-        # (rect_player.x + (rect_player.width // 2), rect_player.y + (rect_player.height // 2)), 25)
+    def melee_circle_attack(self):
+        pygame.draw.circle(self.surface, 'red',
+                           (self.rect_player.x + (self.rect_player.width // 2), self.rect_player.y + (self.rect_player.height // 2)), 100)
