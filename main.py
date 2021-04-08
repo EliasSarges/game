@@ -8,19 +8,26 @@ clock = pygame.time.Clock()
 
 WINDOW_SIZE = (640, 480)
 screen = pygame.display.set_mode(WINDOW_SIZE)
-pygame.display.set_caption("Jogo01")
+pygame.display.set_caption("X1-lixo")
 
-path_img = "assets/sprites/player.png"
+def load_animation(path):
+    animation_name = path.split('/')[-1]
+    return animation_name
+
+
+path = "assets/sprites/player/idle"
+path_img = "assets/sprites/player/idle/idle_1.png"
+
 path_img_weapon = "assets/sprites/sword.png"
 speed = 3
+
+animation_database = {}
+animation_database['walk'] = load_animation(path)
+
 
 # instancia do player
 player = Player(screen, path_img, path_img_weapon, speed)
 
-melee_attack = pygame.USEREVENT + 1
-pygame.time.set_timer(melee_attack, 1500)
-
-atack = True
 
 # game loop ----------------------------------------------------|
 while True:
@@ -30,21 +37,15 @@ while True:
     player.rotate_weapon()
     player.move()
     player.draw()
-    # player.behavior()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-
-        if event.type == melee_attack:
-            atack = True
-
+      
             # ao clicar com o mouse
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_fire_1 = pygame.mouse.get_pressed()[0]
-            if mouse_fire_1 and atack:
-                player.melee_circle_attack()
-                atack = False
+            
 
             # ao pressionar uma tecla ------------------------------|
         if event.type == pygame.KEYDOWN:

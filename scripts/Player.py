@@ -7,6 +7,7 @@ class Player:
     def __init__(self, surface, path_img, path_img_weapon, speed, up=False, down=False, left=False, right=False):
         self.surface = surface
 
+        self.path_img = path_img
         self.sprite_img = pygame.image.load(path_img)
         self.rect_player = self.sprite_img.get_rect(center=(300, 300))
 
@@ -25,6 +26,8 @@ class Player:
         self.path_img_weapon = path_img_weapon
 
         self.direction = 0
+
+
 
     # controle de movimento do jogador
     def move(self):
@@ -58,11 +61,11 @@ class Player:
         if self.angle <= 0 and self.angle >= -180:
             self.direction = 1
             self.rot_image_rect.center = (
-                self.rect_player.x + 65, self.rect_player.y + 55)
+                self.rect_player.x + 75, self.rect_player.y + 40)
         else:
             self.direction = 0
             self.rot_image_rect.center = (
-                self.rect_player.x - 15, self.rect_player.y + 55)
+                self.rect_player.x - 15, self.rect_player.y + 40)
 
         self.weapon_rect = self.rect_player
 
